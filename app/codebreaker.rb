@@ -23,7 +23,21 @@ class Codebreaker
       guessed_number = input.split("")
       secret_number_arr = @secret_number.split("")
 
-      output.puts ""
+      for num in (0..3)
+        if guessed_number[num] == secret_number_arr[num]
+          output.puts "+"
+          return secret_number_arr
+        end
+      end
+
+      for num in (0..3)
+        if guessed_number.include?(secret_number_arr[num])
+          output.puts "-"
+        else !guessed_number.include?(secret_number_arr[num])
+          output.puts ""
+        end
+      end
+      
     end
   end
 end
